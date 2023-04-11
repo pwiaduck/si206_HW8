@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 # Your name: Paige Wiaduck
 # Your student id: 6603 9062
 # Your email: pwiaduck@uich.edu
+=======
+# Your name: 
+# Your student id:
+# Your email:
+>>>>>>> 92bf1c93bc8dc00e5103245f522b3a5796586bdd
 # List who you have worked with on this homework:
 
 import matplotlib.pyplot as plt
@@ -15,6 +21,7 @@ def load_rest_data(db):
     and each inner key is a dictionary, where the key:value pairs should be the category, 
     building, and rating for the restaurant.
     """
+<<<<<<< HEAD
 
     dict = {}
     con = sqlite3.connect(db)
@@ -36,6 +43,9 @@ def load_rest_data(db):
     con.close()
     
     return dict
+=======
+    pass
+>>>>>>> 92bf1c93bc8dc00e5103245f522b3a5796586bdd
 
 def plot_rest_categories(db):
     """
