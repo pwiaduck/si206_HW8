@@ -50,16 +50,29 @@ def plot_rest_categories(db):
     cur = con.cursor()
     
     category_types = cur.execute("SELECT category FROM categories")
+                  
+    lst = cur.execute("SELECT categories.category, COUNT(restaurants.category_id) FROM categories JOIN restaurants ON restaurants.category_id = categories.id GROUP BY category")
+    for row in lst:
+        # print(row)
+        type = row[0]
+        num = row[1]
+
+        dict[type] = num
+
+    restaurants = list(dict.keys())
+    values = list(dict.values())
+
+    plt.figure(1, figsize=(15,5))
+    plt.rcParams.update({'font.size': 8})
     
-    # for category in category_types:
-    #     print(category)
-    # restaurant_list = cur.execute("SELECT name, category_id FROM restaurants")
+    plt.barh(restaurants, values)
+    
+    plt.title("Restaurant categories")
+    plt.show()
 
-    for category in category_types:
-        num = cur.execute("SELECT COUNT(restaurants.name) FROM restaurants JOIN categories ON restaurants.category_id = categories.id WHERE category = ?", (category, ))
-        print(num)
+    return dict
 
-            
+    
 
     
 
@@ -70,6 +83,7 @@ def find_rest_in_building(building_num, db):
     should be sorted by their rating from highest to lowest.
     '''
     pass
+    # WHERE = building num
 
 #EXTRA CREDIT
 def get_highest_rating(db): #Do this through DB as well
