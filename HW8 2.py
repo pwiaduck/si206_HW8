@@ -67,8 +67,10 @@ def plot_rest_categories(db):
     
     plt.barh(restaurants, values)
     
-    plt.title("Restaurant categories")
-    # plt.show()
+    plt.title("Types of Restaurants on South University Ave.")
+    plt.xlabel("Number of restaurants")
+    plt.ylabel("Restaurant categories")
+    plt.show()
 
     con.close() 
 
